@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="30">
+            <Entry x:Name="txtHost" Placeholder="Host" />
+            <Entry x:Name="txtUsuario" Placeholder="Usuario" />
+            <Entry x:Name="txtPassword" Placeholder="Contraseña" IsPassword="True" />
+            <Button Text="Conectar" Clicked="OnConectarClicked" BackgroundColor="#007ACC" TextColor="White" CornerRadius="5" />
+            <Button x:Name="btnSubir" Text="Subir Archivo" IsEnabled="False" BackgroundColor="#007ACC" TextColor="White" CornerRadius="5" />
+            <Button x:Name="btnDescargar" Text="Descargar Archivo" IsEnabled="False" BackgroundColor="#007ACC" TextColor="White" CornerRadius="5" />
+            <Button x:Name="btnActualizarLista" Text="Actualizar Lista" IsEnabled="False" BackgroundColor="#007ACC" TextColor="White" CornerRadius="5" />
+            <ListView x:Name="lstArchivos" ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="{Binding Icono}" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="{Binding Nombre}" VerticalOptions="Center" Margin="10,0,0,0" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
